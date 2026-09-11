@@ -7,24 +7,24 @@
 
 window.INVITATION_CONFIG = {
   site: {
-    title: "Zoya & Zaid — Nikah Invitation",
-    description: "You are warmly invited to celebrate the Nikah of Zoya Khan and Shaikh Zaid.",
+    title: "Durefishan & Bilal — Nikah Invitation",
+    description: "You are warmly invited to celebrate the Nikah of Durefishan and Bilal Abbas.",
   },
 
   couple: {
-    brideInitial: "A",
-    groomInitial: "H",
+    brideInitial: "D",
+    groomInitial: "B",
     bride: {
-      name: "Zoya Khan",
-      shortName: "Zoya",
+      name: "Durefishan Saleem",
+      shortName: "Durefishan",
       relation: "Daughter of",
-      parents: "Rashid Khan & Farida Begum",
+      parents: "Saleem",
     },
     groom: {
-      name: "Shaikh Zaid",
-      shortName: "Zaid",
+      name: "Bilal Abbas",
+      shortName: "Bilal",
       relation: "Son of",
-      parents: "Shaikh Tariq & Shabana Begum",
+      parents: "Abbas",
     },
   },
 
@@ -110,7 +110,7 @@ window.INVITATION_CONFIG = {
   venue: {
     name: "Noor Invites",
     address:
-      "Mahal, Nagpur",
+      "Lahore, Pakistan",
     mapUrl: "https://maps.app.goo.gl/9SjDC3RRg9jHZty59",
   },
 
@@ -146,7 +146,7 @@ dressCode: {
       name: "Walima",
       date: "October 19",
       time: "7:30 PM",
-      location: "Blue Lagoon, ECR, Chennai",
+      location: "Lahore, Pakistan",
       mapLink: "https://maps.app.goo.gl/VY3FM2kntM26syuJ8",
     },
   ],
