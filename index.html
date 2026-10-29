@@ -9,10 +9,10 @@
 <meta content="Mr. &amp; Mrs. Muzammil Mustaq Sayed solicit your gracious and esteemed presence on the auspicious occasion of the Reception Ceremony of their beloved son Sahil Sayed with Aamina Lashkariya." property="og:description"/>
 <meta content="website" property="og:type"/>
 <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="assets/css/styles.css?v=3.0" rel="stylesheet"/>
+<link href="assets/css/styles.css?v=4.0" rel="stylesheet"/>
 <!-- Edit client details in config.js. Keep config.js before app.js. -->
-<script defer="" src="assets/js/config.js?v=3.0"></script>
-<script defer="" src="assets/js/app.js?v=3.0"></script>
+<script defer="" src="assets/js/config.js?v=4.0"></script>
+<script defer="" src="assets/js/app.js?v=4.0"></script>
 </head>
 <body class="intro-locked">
 <main id="invitation">
@@ -33,14 +33,16 @@
 <span class="opening-ripple"></span>
 </div>
 <div class="hero-content">
+<div class="hero-block hero-block-top">
 <p class="bismillah" data-bind="copy.bismillah" lang="ar"></p>
 <p class="translation" data-bind="copy.bismillahTranslation"></p>
 <div class="hero-divider"><span>✦</span></div>
 
 <h2 class="hero-reception-heading">Reception Invitation</h2>
 <p class="hero-welcome" data-bind="copy.welcomeLine"></p>
+</div>
 
-<div class="couple-names">
+<div class="hero-block hero-block-center couple-names">
 <div>
 <h1 id="groomName"></h1>
 <p data-bind="couple.groom.relation"></p>
@@ -53,12 +55,15 @@
 <small data-bind="couple.bride.parents"></small>
 </div>
 </div>
+
+<div class="hero-block hero-block-bottom">
 <p class="hero-invitation" data-bind="copy.invitation"></p>
 <p class="hero-closing" data-bind="copy.heroClosing"></p>
 <a class="scroll-cue" href="#welcome">
 <span>Scroll</span>
 <i aria-hidden="true"></i>
 </a>
+</div>
 </div>
 </section>
 
