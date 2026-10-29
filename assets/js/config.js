@@ -73,7 +73,7 @@ window.INVITATION_CONFIG = {
       date: "Sunday, 6th December, 2026",
       hijri: "(25th Jamadil-Akhir 1448 Hijri)",
       time: "Nikah : After Namaz-e-Magrib",
-      location: "Kurla (W), Mumbai",
+      location: "",
       mapLink: "",
     },
     {
