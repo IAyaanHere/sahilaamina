@@ -1,174 +1,167 @@
 /**
- * CLIENT CONFIGURATION
- * --------------------
- * Change client-specific content here. Keep quotation marks and commas intact.
- * File paths are relative so this template works inside /khwahish/ or any folder.
+ * CLIENT CONFIGURATION - SAHIL & AAMINA
+ * -------------------------------------
+ * Wedding & Reception details matching attached invitation card.
  */
 
 window.INVITATION_CONFIG = {
   site: {
-    title: "Durefishan & Bilal — Nikah Invitation",
-    description: "You are warmly invited to celebrate the Nikah of Durefishan and Bilal Abbas.",
+    title: "Sahil & Aamina — Wedding & Reception Invitation",
+    description: "Mr. & Mrs. Muzammil Mustaq Sayed solicit your gracious and esteemed presence on the auspicious occasion of the Reception Ceremony of their beloved son Sahil Sayed with Aamina Lashkariya.",
   },
 
   couple: {
-    brideInitial: "D",
-    groomInitial: "B",
-    bride: {
-      name: "Durefishan Saleem",
-      shortName: "Durefishan",
-      relation: "Daughter of",
-      parents: "Saleem",
-    },
+    groomInitial: "S",
+    brideInitial: "A",
     groom: {
-      name: "Bilal Abbas",
-      shortName: "Bilal",
-      relation: "Son of",
-      parents: "Abbas",
+      name: "Sahil Sayed",
+      shortName: "Sahil",
+      relation: "S/o.",
+      parents: "Muzammil Mustaq Sayed",
     },
+    bride: {
+      name: "Aamina Lashkariya",
+      shortName: "Aamina",
+      relation: "D/o.",
+      parents: "Yunus Lashkariya",
+    },
+  },
+
+  hosts: {
+    invitationBy: "Mr. & Mrs. Muzammil Mustaq Sayed",
+    solicitation: "Solicit your gracious and esteemed presence on the auspicious occasion of the Reception Ceremony of their beloved son",
+    fromName: "Muzammil Mustaq Sayed",
+    contactNumber: "9224475366",
+    contactDisplay: "+91 92244 75366",
+  },
+
+  compliments: {
+    title: "With Best Compliments From",
+    families: "Sayed Family, Shaikh Family",
+    relations: "Relatives & Friends",
   },
 
   copy: {
-    bismillah: "﷽",
-    bismillahTranslation:
-      "",
-    welcomeLine: "We request the honour of your\npresence at the Nikah of",
-    invitation:
-      "",
-    heroClosing:
-      "as they begin their forever in\nfaith and love.",
-    welcomeTitle: "A Blessed Beginning",
-    welcomeBody:
-      "With hearts full of gratitude, we warmly invite you to join us as we celebrate this beautiful beginning with the love, prayers, and blessings of our families.",
-    gifts:
-      "Your love, blessings, and presence are the greatest gifts we could ever ask for.",
-    closing: "We can’t wait to celebrate with you.",
+    bismillah: "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ",
+    bismillahTranslation: 'In the name of "Allah" the most beneficent & merciful',
+    invitationType: "Reception Invitation",
+    welcomeLine: "Mr. & Mrs. Muzammil Mustaq Sayed\nrequest the honour of your presence at the reception of",
+    invitation: "",
+    heroClosing: "as they begin their blessed journey of togetherness in faith and love.",
+    welcomeTitle: "Reception Invitation",
+    welcomeBody: "Mr. & Mrs. Muzammil Mustaq Sayed solicit your gracious and esteemed presence on the auspicious occasion of the Reception Ceremony of their beloved son Sahil Sayed with Aamina Lashkariya. Your presence, warm prayers, and blessings are our greatest treasure.",
+    gifts: "Your gracious presence, love, and prayers are the greatest gifts we could ever ask for.",
+    closing: "We look forward to welcoming you with warmth and joy.",
     dua: "بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
-    duaTranslation:
-      "May Allah bless you both, shower His blessings upon you, and join you together in goodness.",
+    duaTranslation: "May Allah bless you both, shower His blessings upon you, and join you together in goodness.",
   },
 
+  // Countdown & Scratch Date: Reception Ceremony (Dec 8, 2026, 7:30 PM IST)
   wedding: {
-    // Use a valid ISO date with the local UTC offset for an accurate countdown.
-    isoDate: "2026-10-18T19:00:00+05:30",
-    date: "October 18, 2026",
-    day: "Sunday",
-    time: "07:00 PM",
+    isoDate: "2026-12-08T19:30:00+05:30",
+    date: "December 8, 2026",
+    day: "Tuesday",
+    time: "7:30 PM to 11:00 PM",
     timezone: "IST",
   },
 
-  media: {
-    // Replace these two files inside the /media folder.
-    introVideo: "./media/intro-placeholder.mp4",
-    introPoster:
-      "./media/intro-placeholder.webp",
-    music: "./bismillah.mp3",
+  // Auspicious Occasions directly from invitation card
+  occasions: [
+    {
+      name: "Insha Allah Nikah",
+      badge: "Solemnisation Ceremony",
+      date: "Sunday, 6th December, 2026",
+      hijri: "(25th Jamadil-Akhir 1448 Hijri)",
+      time: "Nikah : After Namaz-e-Magrib",
+      location: "Kurla (W), Mumbai",
+      mapLink: "",
+    },
+    {
+      name: "Reception & Dawat-e-Walima",
+      badge: "Auspicious Occasion",
+      date: "Tuesday, 8th December, 2026",
+      hijri: "",
+      time: "Between : 7-30 to 11-00 pm.",
+      location: "Jashn Banquet Hall, Near Holy Cross High School, Kamani, Kurla (W), Mumbai - 400 070.",
+      mapLink: "https://www.google.com/maps/search/?api=1&query=Jashn+Banquet+Hall+Near+Holy+Cross+High+School+Kamani+Kurla+West+Mumbai+400070",
+    },
+  ],
 
-    // Replace gallery URLs with your own hosted files or image URLs.
+  venue: {
+    name: "Jashn Banquet Hall",
+    address: "Near Holy Cross High School, Kamani, Kurla (W), Mumbai - 400 070.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Jashn+Banquet+Hall+Near+Holy+Cross+High+School+Kamani+Kurla+West+Mumbai+400070",
+  },
+
+  program: [
+    {
+      time: "07:30 PM",
+      title: "Welcoming of Guests",
+      note: "Dawat-e-Walima commences with warm hospitality",
+    },
+    {
+      time: "08:30 PM",
+      title: "Reception Ceremony",
+      note: "Stage greetings, blessings & photographs with the couple",
+    },
+    {
+      time: "09:00 PM",
+      title: "Dawat-e-Walima / Dinner",
+      note: "A joyous feast shared with family, relatives & friends",
+    },
+    {
+      time: "11:00 PM",
+      title: "Duas & Farewell",
+      note: "Heartfelt prayers for Sahil & Aamina's blessed future",
+    },
+  ],
+
+  dressCode: {
+    title: "Festive & Traditional Formal",
+    description: "Traditional Indian or modest formal attire is warmly welcomed. Sherwanis, Kurtas, Suits, Sarees, Lehengas, and Anarkalis.",
+    swatches: [
+      "#7A1F2B",
+      "#234638",
+      "#C49A56",
+      "#7A4968",
+      "#5A4035",
+    ],
+  },
+
+  media: {
+    introVideo: "./media/intro-placeholder.mp4",
+    introPoster: "./media/intro-placeholder.webp",
+    music: "./WhatsApp Video 2026-10-29 at 9.19.17 PM-[AudioTrimmer.com].mp3",
     gallery: [
       {
-        src: "./media/gallery/01.webp",
-        alt: "A softly lit wedding detail",
+        src: "./media/gallery/01.jpg",
+        alt: "Wedding celebration moments",
         caption: "",
       },
       {
-        src: "./media/gallery/02.webp",
-        alt: "A joyful wedding celebration",
+        src: "./media/gallery/02.jpg",
+        alt: "Sahil & Aamina wedding celebration",
         caption: "",
       },
       {
-        src: "./media/gallery/03.webp",
-        alt: "Elegant wedding florals and table setting",
+        src: "./media/gallery/03.jpg",
+        alt: "Joyful wedding celebrations",
+        caption: "",
+      },
+      {
+        src: "./media/gallery/04.jpg",
+        alt: "Wedding floral details & elegance",
         caption: "",
       },
     ],
   },
 
-  program: [
-    {
-      time: "6:30 PM",
-      title: "Guest Arrival",
-      note: "",
-    },
-    {
-      time: "07:00 PM",
-      title: "Nikah Ceremony",
-      note: "Solemnisation & duas",
-    },
-    {
-      time: "07:30 PM",
-      title: "Blessings",
-      note: "Family greetings & photographs",
-    },
-    {
-      time: "08:00 PM",
-      title: "Dinner",
-      note: "A feast shared with love",
-    },
-  ],
-
-  venue: {
-    name: "Noor Invites",
-    address:
-      "Lahore, Pakistan",
-    mapUrl: "https://maps.app.goo.gl/9SjDC3RRg9jHZty59",
+  theme: {
+    ivory: "#FBF7F0",       /* warm bridal ivory matching invitation paper */
+    plum: "#482D1D",        /* rich chocolate ink matching card typography */
+    lavender: "#DECBBA",    /* soft golden beige */
+    mauve: "#A87042",       /* warm bronze gold */
+    lilac: "#967259",       /* warm taupe */
+    champagne: "#C59A53",   /* royal card gold border & accents */
   },
-
-dressCode: {
-  title: "Festive Formal",
-  description:
-    "Traditional or formal attire is encouraged. Sarees, lehengas, anarkalis, sherwanis, kurtas, suits, and formal dresses are all welcome. We kindly ask guests to avoid overly casual attire and white or ivory.",
-  swatches: [
-    "#7A1F2B",
-    "#234638",
-    "#C49A56",
-    "#7A4968",
-    "#31506B",
-  ],
-},
-
-  preWeddingEvents: [
-    {
-      name: "Mehendi",
-      date: "October 15",
-      time: "4:00 PM",
-      location: "Bride’s Residence",
-      mapLink: "https://maps.app.goo.gl/c4WZJk71NhKc7CDGA",
-    },
-    {
-      name: "Qawwali Evening",
-      date: "October 17",
-      time: "7:00 PM",
-      location: "Groom's Residence",
-      mapLink: "https://maps.app.goo.gl/c4WZJk71NhKc7CDGA",
-    },
-    {
-      name: "Walima",
-      date: "October 19",
-      time: "7:30 PM",
-      location: "Lahore, Pakistan",
-      mapLink: "https://maps.app.goo.gl/VY3FM2kntM26syuJ8",
-    },
-  ],
-
-  rsvp: {
-    deadline: "Kindly respond by September 15, 2026",
-    contact: "For assistance, call +91 98765 43210",
-    fields: {
-      name: "Your full name",
-      email: "Email address",
-      attendance: ["Joyfully accepts", "Regretfully declines"],
-      guests: ["1 guest", "2 guests", "3 guests", "4 guests"],
-      note: "Dietary notes or a message for the couple",
-    },
-  },
-
-theme: {
-  ivory: "#F7EFE2",       /* warm bridal ivory */
-  plum: "#5A4035",        /* deep warm cocoa */
-  lavender: "#D8B7A6",    /* muted blush nude */
-  mauve: "#B97D6D",       /* dusty rose */
-  lilac: "#A8A28A",       /* soft sage taupe */
-  champagne: "#B88A45",   /* antique gold */
-},
 };

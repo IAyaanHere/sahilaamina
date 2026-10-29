@@ -24,6 +24,8 @@ document.addEventListener("dragstart", (event) => {
     throw new Error("Invitation config was not loaded. Check assets/js/config.js.");
   }
 
+  let prepareScratchCanvas = null;
+
   const select = (selector, root = document) => root.querySelector(selector);
   const selectAll = (selector, root = document) => [...root.querySelectorAll(selector)];
 
@@ -41,8 +43,9 @@ document.addEventListener("dragstart", (event) => {
   }
 
   function setName(element, personInfo) {
-    const fullName = personInfo.name;
-    const sName = personInfo.shortName || fullName.split(" ")[0];
+    if (!element || !personInfo) return;
+    const fullName = personInfo.name || "";
+    const sName = personInfo.shortName || fullName.split(" ")[0] || "";
     const remaining = fullName.replace(sName, "").trim();
     
     const firstNameElement = createElement("span", "", sName);
@@ -50,15 +53,16 @@ document.addEventListener("dragstart", (event) => {
   }
 
   function setCoupleNames(element) {
-    const brideName = config.couple.bride.shortName || config.couple.bride.name.split(" ")[0];
+    if (!element) return;
     const groomName = config.couple.groom.shortName || config.couple.groom.name.split(" ")[0];
+    const brideName = config.couple.bride.shortName || config.couple.bride.name.split(" ")[0];
     
     element.replaceChildren(
-      document.createTextNode(brideName),
+      document.createTextNode(groomName),
       document.createTextNode(" "),
       createElement("span", "", "&"),
       document.createTextNode(" "),
-      document.createTextNode(groomName)
+      document.createTextNode(brideName)
     );
   }
 
@@ -75,33 +79,50 @@ document.addEventListener("dragstart", (event) => {
 
     const root = document.documentElement;
 
-Object.entries(config.theme).forEach(([name, value]) => {
-  root.style.setProperty(`--${name}`, value);
-});
+    Object.entries(config.theme).forEach(([name, value]) => {
+      root.style.setProperty(`--${name}`, value);
+    });
 
     selectAll("[data-bind]").forEach((element) => {
       const value = getValue(element.dataset.bind);
       element.textContent = value ?? "";
     });
 
-    setName(select("#brideName"), config.couple.bride);
     setName(select("#groomName"), config.couple.groom);
+    setName(select("#brideName"), config.couple.bride);
     setCoupleNames(select("#welcomeSignature"));
     setCoupleNames(select("#closingNames"));
 
-    select("#closingDetails").textContent =
-      `${config.wedding.date} · ${config.venue.name}`;
+    const closingDetails = select("#closingDetails");
+    if (closingDetails) {
+      closingDetails.textContent =
+        `${config.wedding.day}, ${config.wedding.date} · ${config.venue.name}`;
+    }
 
-    select("#mapLink").href = config.venue.mapUrl;
+    const mapLink = select("#mapLink");
+    if (mapLink) {
+      mapLink.href = config.venue.mapUrl;
+    }
+
+    // Personalized guest greeting: supports ?to=Guest+Name or ?guest=Guest+Name
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestParam = urlParams.get("to") || urlParams.get("guest");
+    const guestEl = select("#guestNameDisplay");
+    if (guestEl && guestParam && guestParam.trim()) {
+      guestEl.textContent = guestParam.trim();
+    }
 
     const audio = select("#backgroundMusic");
     const video = select("#introVideo");
     const videoSource = select("#introVideoSource");
 
-    audio.src = config.media.music;
-    video.poster = config.media.introPoster;
-    videoSource.src = config.media.introVideo;
-    video.load();
+    if (audio) audio.src = config.media.music;
+    if (video) {
+      video.poster = config.media.introPoster;
+      video.src = config.media.introVideo;
+      if (videoSource) videoSource.src = config.media.introVideo;
+      video.load();
+    }
 
     renderProgram();
     renderPreWeddingEvents();
@@ -111,6 +132,8 @@ Object.entries(config.theme).forEach(([name, value]) => {
 
   function renderProgram() {
     const timeline = select("#programTimeline");
+    if (!timeline) return;
+    timeline.innerHTML = "";
 
     config.program.forEach((item, index) => {
       const article = createElement("article");
@@ -134,37 +157,52 @@ Object.entries(config.theme).forEach(([name, value]) => {
 
 function renderPreWeddingEvents() {
   const eventList = select("#preWeddingEvents");
+  if (!eventList) return;
+  eventList.innerHTML = "";
 
-  config.preWeddingEvents.forEach((event) => {
+  const events = config.occasions || config.preWeddingEvents || [];
+
+  events.forEach((event) => {
     const article = createElement("article");
 
+    if (event.badge) {
+      const badge = createElement("span", "event-badge", event.badge);
+      article.append(badge);
+    }
+
     const title = createElement("h3", "", event.name);
+    article.append(title);
 
     const dateTime = createElement("p");
-    dateTime.innerHTML = `
-      <span>${event.date}</span>
-      <span>⬩</span>
-      <span>${event.time}</span>
-    `;
+    dateTime.innerHTML = `<span>${event.date}</span>`;
+    article.append(dateTime);
 
-    const location = createElement("small", "", event.location);
+    if (event.hijri) {
+      const hijri = createElement("p", "event-hijri", event.hijri);
+      article.append(hijri);
+    }
 
-    const mapLink = createElement(
-      "a",
-      "event-map-link",
-      "View on Google Maps"
-    );
+    if (event.time) {
+      const timeHighlight = createElement("p", "event-time-highlight", event.time);
+      article.append(timeHighlight);
+    }
 
-    mapLink.href = event.mapLink;
-    mapLink.target = "_blank";
-    mapLink.rel = "noreferrer";
+    if (event.location) {
+      const location = createElement("small", "", event.location);
+      article.append(location);
+    }
 
-    article.append(
-      title,
-      dateTime,
-      location,
-      mapLink
-    );
+    if (event.mapLink) {
+      const mapLink = createElement(
+        "a",
+        "event-map-link",
+        "View on Google Maps"
+      );
+      mapLink.href = event.mapLink;
+      mapLink.target = "_blank";
+      mapLink.rel = "noreferrer";
+      article.append(mapLink);
+    }
 
     eventList.append(article);
   });
@@ -172,6 +210,8 @@ function renderPreWeddingEvents() {
 
   function renderDressPalette() {
     const palette = select("#dressPalette");
+    if (!palette || !config.dressCode || !config.dressCode.swatches) return;
+    palette.innerHTML = "";
 
     config.dressCode.swatches.forEach((color, index) => {
       const swatch = createElement("i");
@@ -188,6 +228,9 @@ let touchStartY = 0;
 function renderGallery() {
   const slides = select("#gallerySlides");
   const dots = select("#galleryDots");
+  if (!slides || !dots || !config.media || !config.media.gallery) return;
+  slides.innerHTML = "";
+  dots.innerHTML = "";
 
   config.media.gallery.forEach((image, index) => {
     const figure = createElement(
@@ -221,6 +264,7 @@ function renderGallery() {
   });
 
   const frame = select("#galleryFrame");
+  if (!frame) return;
 
   frame.addEventListener("pointerdown", (event) => {
     touchStartX = event.clientX;
@@ -301,7 +345,10 @@ function showSlide(index) {
     let opened = false;
 
     function openInvitation() {
-      if (opened) return;
+      if (opened) {
+        hero.classList.add("show-content-now");
+        return;
+      }
 
       opened = true;
       hero.classList.remove("is-closed");
@@ -309,26 +356,57 @@ function showSlide(index) {
       hero.removeAttribute("role");
       hero.removeAttribute("aria-label");
       hero.tabIndex = -1;
-      select("#openingMark").setAttribute("aria-hidden", "true");
+      const openingMark = select("#openingMark");
+      if (openingMark) openingMark.setAttribute("aria-hidden", "true");
       document.body.classList.remove("intro-locked");
-      video.muted = true;
-      video.volume = 0;
-      video.play().catch(() => undefined);
-      const audio = select("#backgroundMusic");
 
-audio.play()
-  .then(updateMusicControl)
-  .catch(updateMusicControl);
+      if (video) {
+        video.muted = true;
+        video.volume = 0;
+        video.currentTime = 0;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn("Video play error/blocked:", err);
+            hero.classList.add("show-content-now");
+          });
+        }
+        video.addEventListener("ended", () => {
+          hero.classList.add("show-content-now");
+        }, { once: true });
+
+        setTimeout(() => {
+          hero.classList.add("show-content-now");
+        }, 8500);
+      } else {
+        hero.classList.add("show-content-now");
+      }
+
+      if (typeof prepareScratchCanvas === "function") {
+        prepareScratchCanvas();
+      }
+
+      const audio = select("#backgroundMusic");
+      if (audio) {
+        audio.play()
+          .then(updateMusicControl)
+          .catch(updateMusicControl);
+      }
     }
 
-    hero.addEventListener("click", openInvitation);
-    hero.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") openInvitation();
-    });
+    if (hero) {
+      hero.addEventListener("click", openInvitation);
+      hero.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") openInvitation();
+      });
+    }
 
-    select(".scroll-cue").addEventListener("click", (event) => {
-      event.stopPropagation();
-    });
+    const scrollCue = select(".scroll-cue");
+    if (scrollCue) {
+      scrollCue.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+    }
   }
 
   function initializeMusic() {
@@ -385,25 +463,28 @@ audio.play()
     const card = select("#scratchCard");
     const heading = select("#scratchHeading");
     const note = select("#scratchNote");
+    if (!canvas || !card) return;
     let drawing = false;
     let revealed = false;
+
+    prepareScratchCanvas = prepareCanvas;
 
     function prepareCanvas() {
   if (revealed || !canvas.isConnected) return;
 
   const rect = canvas.getBoundingClientRect();
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
+  const width = rect.width || canvas.offsetWidth || card.offsetWidth || 500;
+  const height = rect.height || canvas.offsetHeight || card.offsetHeight || 312;
+
+  canvas.width = Math.round(width * ratio);
+  canvas.height = Math.round(height * ratio);
+
   const context = canvas.getContext("2d", {
     willReadFrequently: true,
   });
 
-  canvas.width = Math.round(rect.width * ratio);
-  canvas.height = Math.round(rect.height * ratio);
-
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-  const width = rect.width;
-  const height = rect.height;
 
   /* =========================
      BURGUNDY BASE
@@ -548,7 +629,6 @@ audio.play()
     );
   }
 
-
   /* reset */
   context.globalAlpha = 1;
 
@@ -562,6 +642,8 @@ audio.play()
   context.lineCap = "round";
   context.lineJoin = "round";
   context.lineWidth = 42;
+
+  card.classList.add("is-ready");
 }
 
     function pointerPosition(event) {
@@ -619,9 +701,9 @@ audio.play()
       // Keep both classes: is-revealed handles celebration styling, while
       // is-visible prevents the scroll-reveal animation from hiding the card.
       card.classList.add("is-revealed", "is-visible");
-      heading.textContent = "Our forever begins";
+      heading.textContent = "Our Forever Begins";
       note.textContent =
-        "Save the date — we would be honoured to have you with us.";
+        "Tuesday, 8th December, 2026 — Jashn Banquet Hall, Kurla (W), Mumbai";
       canvas.remove();
       createPetalShower();
     }

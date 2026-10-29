@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Durefishan & Bilal — Nikah Invitation</title>
-<meta content="You are warmly invited to celebrate the Nikah of Durefishan and Bilal Abbas." name="description"/>
-<meta content="Durefishan & Bilal — Nikah Invitation" property="og:title"/>
-<meta content="You are warmly invited to celebrate the Nikah of Durefishan and Bilal Abbas." property="og:description"/>
+<title>Sahil &amp; Aamina — Wedding &amp; Reception Invitation</title>
+<meta content="Mr. &amp; Mrs. Muzammil Mustaq Sayed solicit your gracious and esteemed presence on the auspicious occasion of the Reception Ceremony of their beloved son Sahil Sayed with Aamina Lashkariya." name="description"/>
+<meta content="Sahil &amp; Aamina — Wedding &amp; Reception Invitation" property="og:title"/>
+<meta content="Mr. &amp; Mrs. Muzammil Mustaq Sayed solicit your gracious and esteemed presence on the auspicious occasion of the Reception Ceremony of their beloved son Sahil Sayed with Aamina Lashkariya." property="og:description"/>
 <meta content="website" property="og:type"/>
 <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="assets/css/styles.css" rel="stylesheet"/>
+<link href="assets/css/styles.css?v=3.0" rel="stylesheet"/>
 <!-- Edit client details in config.js. Keep config.js before app.js. -->
-<script defer="" src="assets/js/config.js"></script>
-<script defer="" src="assets/js/app.js"></script>
+<script defer="" src="assets/js/config.js?v=3.0"></script>
+<script defer="" src="assets/js/app.js?v=3.0"></script>
 </head>
 <body class="intro-locked">
 <main id="invitation">
@@ -22,10 +21,11 @@
 <span aria-hidden="true" class="music-bars"><i></i><i></i><i></i></span>
 <span id="musicLabel">Music</span>
 </button>
+
 <!-- Opening / hero -->
 <section aria-label="Tap to open the wedding invitation" class="hero is-closed" id="hero" role="button" tabindex="0">
-<video class="hero-video" id="introVideo" muted="" playsinline="" preload="metadata">
-<source id="introVideoSource" type="video/mp4"/>
+<video class="hero-video" id="introVideo" muted="" playsinline="" webkit-playsinline="" preload="auto" src="./media/intro-placeholder.mp4">
+<source id="introVideoSource" src="./media/intro-placeholder.mp4" type="video/mp4"/>
 </video>
 <div class="hero-veil"></div>
 <div class="opening-mark" id="openingMark">
@@ -35,19 +35,22 @@
 <div class="hero-content">
 <p class="bismillah" data-bind="copy.bismillah" lang="ar"></p>
 <p class="translation" data-bind="copy.bismillahTranslation"></p>
-<div class="hero-divider"><span>â¦</span></div>
+<div class="hero-divider"><span>✦</span></div>
+
+<h2 class="hero-reception-heading">Reception Invitation</h2>
 <p class="hero-welcome" data-bind="copy.welcomeLine"></p>
+
 <div class="couple-names">
-<div>
-<h1 id="brideName"></h1>
-<p data-bind="couple.bride.relation"></p>
-<small data-bind="couple.bride.parents"></small>
-</div>
-<span class="name-ampersand">&amp;</span>
 <div>
 <h1 id="groomName"></h1>
 <p data-bind="couple.groom.relation"></p>
 <small data-bind="couple.groom.parents"></small>
+</div>
+<span class="name-ampersand">Weds</span>
+<div>
+<h1 id="brideName"></h1>
+<p data-bind="couple.bride.relation"></p>
+<small data-bind="couple.bride.parents"></small>
 </div>
 </div>
 <p class="hero-invitation" data-bind="copy.invitation"></p>
@@ -58,23 +61,28 @@
 </a>
 </div>
 </section>
+
 <div aria-hidden="true" class="floral-divider">
 <img alt="" src="assets/images/floral-divider.webp"/>
 </div>
+
 <!-- Welcome -->
 <section class="welcome-section section-pad" id="welcome">
 <div class="section-shell welcome-shell">
 <div class="welcome-copy reveal">
+<span class="eyebrow">Warm Invitation</span>
 <h2 data-bind="copy.welcomeTitle"></h2>
 <p data-bind="copy.welcomeBody"></p>
 <div class="signature" id="welcomeSignature"></div>
 </div>
 </div>
 </section>
+
 <div aria-hidden="true" class="floral-divider">
 <img alt="" src="assets/images/floral-divider.webp"/>
 </div>
-<!-- Scratch-to-reveal date -->
+
+<!-- Scratch-to-reveal date (Date stays hidden until scratched) -->
 <section class="scratch-section section-pad" id="date">
 <div class="section-shell">
 <header class="section-heading reveal">
@@ -83,33 +91,109 @@
 <span aria-hidden="true" class="ornament"><i></i></span>
 </header>
 <div class="scratch-frame-shell reveal">
-<img alt="" aria-hidden="true" class="scratch-frame-overlay" src="assets/images/scratch-frame.webp">
+<img alt="" aria-hidden="true" class="scratch-frame-overlay" src="assets/images/scratch-frame.webp"/>
 <div class="scratch-wrap" id="scratchCard">
 <div aria-live="polite" class="date-reveal">
-<span class="date-kicker">Youâre Invited!</span>
+<span class="date-kicker">Reception &amp; Dawat-e-Walima</span>
 <strong class="date-main" data-bind="wedding.date"></strong>
 <div class="date-day">
 <span data-bind="wedding.day"></span>
-<a aria-hidden="true">â¬©</a>
+<a aria-hidden="true">⬩</a>
 <span data-bind="wedding.time"></span>
 </div>
 </div>
 <canvas aria-label="Scratch to reveal the wedding date. Press Enter to reveal." class="scratch-canvas" id="scratchCanvas" role="button" tabindex="0"></canvas>
 </div>
-</img></div>
+</div>
 <p class="scratch-note reveal" id="scratchNote">
-            Use your finger or cursor to uncover the moment.
-          </p>
+Use your finger or cursor to uncover the moment.
+</p>
 </div>
 </section>
+
 <div aria-hidden="true" class="floral-divider">
 <img alt="" src="assets/images/floral-divider.webp"/>
 </div>
+
+<!-- Countdown (Configured for Reception Date: Dec 8, 2026) -->
+<section class="countdown-section section-pad" id="countdown">
+<div class="section-shell countdown-shell">
+<header class="section-heading reveal">
+<span class="eyebrow">Countdown to Celebration</span>
+<h2>Reception &amp; Dawat-e-Walima</h2>
+<span aria-hidden="true" class="ornament"><i></i></span>
+</header>
+<div aria-label="Wedding countdown" class="countdown reveal">
+<div><strong id="countdownDays">00</strong><span>days</span></div>
+<div><strong id="countdownHours">00</strong><span>hours</span></div>
+<div><strong id="countdownMinutes">00</strong><span>minutes</span></div>
+<div><strong id="countdownSeconds">00</strong><span>seconds</span></div>
+</div>
+</div>
+</section>
+
+<div aria-hidden="true" class="floral-divider">
+<img alt="" src="assets/images/floral-divider.webp"/>
+</div>
+
+<!-- Auspicious Occasions (Insha Allah Nikah & Reception & Dawat-e-Walima) -->
+<section class="events-section section-pad" id="occasions">
+<div class="section-shell">
+<header class="section-heading reveal">
+<span class="eyebrow">Auspicious Occasions</span>
+<h2>The Sacred Celebrations</h2>
+<span aria-hidden="true" class="ornament"><i></i></span>
+</header>
+<div class="event-list reveal" id="preWeddingEvents"></div>
+</div>
+</section>
+
+<div aria-hidden="true" class="floral-divider">
+<img alt="" src="assets/images/floral-divider.webp"/>
+</div>
+
+<!-- Program Timeline (Reception Evening Flow) -->
+<section class="program-section section-pad" id="program">
+<div class="section-shell program-shell">
+<header class="section-heading reveal">
+<span class="eyebrow">Reception Schedule</span>
+<h2>Evening Program</h2>
+<span aria-hidden="true" class="ornament"><i></i></span>
+</header>
+<div class="timeline reveal" id="programTimeline"></div>
+</div>
+</section>
+
+<div aria-hidden="true" class="floral-divider">
+<img alt="" src="assets/images/floral-divider.webp"/>
+</div>
+
+<!-- Venue -->
+<section class="venue-section section-pad" id="venue">
+<div class="section-shell">
+<div class="venue-card reveal">
+<span class="eyebrow">The Venue</span>
+<div aria-hidden="true" class="venue-divider">
+<span>✦</span>
+</div>
+<h2 data-bind="venue.name"></h2>
+<p data-bind="venue.address"></p>
+<a class="venue-map-button" id="mapLink" rel="noreferrer" target="_blank">
+View on Google Maps
+</a>
+</div>
+</div>
+</section>
+
+<div aria-hidden="true" class="floral-divider">
+<img alt="" src="assets/images/floral-divider.webp"/>
+</div>
+
 <!-- Gallery -->
 <section aria-label="Gallery" class="gallery-section section-pad">
 <div class="section-shell">
 <header class="section-heading reveal">
-<span class="eyebrow">Our story</span>
+<span class="eyebrow">Our Story</span>
 <h2>Moments, softly held</h2>
 <span aria-hidden="true" class="ornament"><i></i></span>
 </header>
@@ -121,90 +205,50 @@
 <div aria-label="Choose gallery image" class="gallery-dots reveal" id="galleryDots"></div>
 </div>
 </section>
+
 <div aria-hidden="true" class="floral-divider">
 <img alt="" src="assets/images/floral-divider.webp"/>
 </div>
-<!-- Countdown -->
-<section class="countdown-section section-pad">
-<div class="section-shell countdown-shell">
-<header class="section-heading reveal">
-<span class="eyebrow">Until we say Qubool Hai</span>
-<h2>Counting every heartbeat</h2>
-<span aria-hidden="true" class="ornament"><i></i></span>
-</header>
-<div aria-label="Wedding countdown" class="countdown reveal">
-<div><strong id="countdownDays">00</strong><span>days</span></div>
-<div><strong id="countdownHours">00</strong><span>hours</span></div>
-<div><strong id="countdownMinutes">00</strong><span>minutes</span></div>
-<div><strong id="countdownSeconds">00</strong><span>seconds</span></div>
-</div>
-</div>
-</section>
-<div aria-hidden="true" class="floral-divider">
-<img alt="" src="assets/images/floral-divider.webp"/>
-</div>
-<!-- Program -->
-<section class="program-section section-pad">
-<div class="section-shell program-shell">
-<header class="section-heading reveal">
-<span class="eyebrow">The celebration</span>
-<h2>Our Nikah day</h2>
-<span aria-hidden="true" class="ornament"><i></i></span>
-</header>
-<div class="timeline reveal" id="programTimeline"></div>
-</div>
-</section>
-<div aria-hidden="true" class="floral-divider">
-<img alt="" src="assets/images/floral-divider.webp"/>
-</div>
-<!-- Venue -->
-<section class="venue-section section-pad">
+
+<!-- With Best Compliments From & Host Contact Section -->
+<section class="compliments-section section-pad" id="compliments">
 <div class="section-shell">
-<div class="venue-card reveal">
-<span class="eyebrow">The venue</span>
-<div aria-hidden="true" class="venue-divider">
-<span>â¦</span>
+<div class="compliments-card reveal">
+<span class="eyebrow">Warm Greetings</span>
+<div aria-hidden="true" class="venue-divider"><span>✦</span></div>
+<h2 data-bind="compliments.title">With Best Compliments From</h2>
+<div class="compliments-names">
+<p class="family-names" data-bind="compliments.families"></p>
+<p class="relations-names" data-bind="compliments.relations"></p>
 </div>
-<h2 data-bind="venue.name"></h2>
-<p data-bind="venue.address"></p>
-<a class="venue-map-button" id="mapLink" rel="noreferrer" target="_blank">
-        View on Google Maps
-      </a>
+
+<div class="host-contact-box">
+<span class="host-label">From :</span>
+<h3 class="host-name" data-bind="hosts.fromName"></h3>
+<p class="host-phone">
+<span>Mobile :</span>
+<a class="phone-link" href="tel:9224475366">92244 75366</a>
+</p>
+<div class="host-actions">
+<a class="contact-pill-btn" href="tel:9224475366">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+<span>Call</span>
+</a>
+<a class="contact-pill-btn whatsapp" href="https://wa.me/919224475366?text=Assalam%20o%20Alaikum%20Muzammil%20Sahab,%20Heartiest%20congratulations%20on%20Sahil%20and%20Aamina's%20Wedding%20and%20Reception!" rel="noreferrer" target="_blank">
+<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43l-.47-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"></path></svg>
+<span>WhatsApp</span>
+</a>
+</div>
+</div>
 </div>
 </div>
 </section>
+
 <div aria-hidden="true" class="floral-divider">
 <img alt="" src="assets/images/floral-divider.webp"/>
 </div>
-<!-- Dress code -->
-<section class="dress-section section-pad">
-<div class="section-shell dress-shell">
-<div class="dress-copy reveal">
-<span class="eyebrow">Dress code</span>
-<h2 data-bind="dressCode.title"></h2>
-<p data-bind="dressCode.description"></p>
-</div>
-<div aria-label="Suggested colour palette" class="palette reveal" id="dressPalette"></div>
-</div>
-</section>
-<div aria-hidden="true" class="floral-divider">
-<img alt="" src="assets/images/floral-divider.webp"/>
-</div>
-<!-- Pre-wedding events -->
-<section class="events-section section-pad">
-<div class="section-shell">
-<header class="section-heading reveal">
-<span class="eyebrow">The Festivities</span>
-<h2>Days filled with joy</h2>
-<span aria-hidden="true" class="ornament"><i></i></span>
-</header>
-<div class="event-list reveal" id="preWeddingEvents"></div>
-</div>
-</section>
-<div aria-hidden="true" class="floral-divider">
-<img alt="" src="assets/images/floral-divider.webp"/>
-</div>
-<!-- Gifts -->
+
+<!-- Gifts / Prayers -->
 <section class="gifts-section section-pad">
 <div aria-hidden="true" class="gift-bloom"><i></i><i></i><i></i></div>
 <div class="gift-copy reveal">
@@ -213,23 +257,22 @@
 <p><span data-bind="copy.gifts"></span></p>
 </div>
 </section>
-<!-- RSVP -->
+
 <div aria-hidden="true" class="floral-divider">
 <img alt="" src="assets/images/floral-divider.webp"/>
 </div>
+
 <!-- Closing -->
 <footer class="closing-section">
 <div class="closing-arch reveal">
 <span aria-hidden="true" class="ornament light"><i></i></span>
+<p class="bismillah" data-bind="copy.dua" lang="ar" style="font-family: var(--font-arabic); font-size: clamp(1.3rem, 4.5vw, 2rem); margin: 20px 0 6px;"></p>
+<p class="translation" data-bind="copy.duaTranslation" style="margin-bottom: 25px;"></p>
 <h2 data-bind="copy.closing"></h2>
 <div class="closing-names" id="closingNames"></div>
 <small id="closingDetails"></small>
 </div>
 </footer>
 </main>
-<!-- NAQSH PREVIEW CTA -->
-
-
-
 </body>
 </html>
