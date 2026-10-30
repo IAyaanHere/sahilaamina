@@ -131,7 +131,7 @@ window.INVITATION_CONFIG = {
   media: {
     introVideo: "./media/intro-placeholder.mp4",
     introPoster: "./media/intro-placeholder.webp",
-    music: "./WhatsApp Video 2026-10-29 at 9.19.17 PM-[AudioTrimmer.com].mp3",
+    music: "./Assubhu Bada (Vocals Only)_22_248.mp3",
     gallery: [
       {
         src: "./media/gallery/01.jpg",
